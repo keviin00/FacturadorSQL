@@ -63,25 +63,15 @@ select FN_Productos_MarcaBK ('celular');
 		-- FUNCION V
  
 DROP FUNCTION IF EXISTS FN_Productos_DisponibleBK ; -- BORRAMOS EL FN SI EXISTE 
-
 delimiter //
-
 create function FN_Productos_DisponibleBK (f_MARCA char(255), f_MODELO char(255)) returns int --  CREAMOS EL FN PARA VER CUANTOS PRODUCTOS QUEDAN DISPONIBLE EN EL STOCK 
-
 deterministic
-
 BEGIN
-
 DECLARE LISTA_DE_PRODUCTOS INT ;
-
 select cantidad into lista_de_productos
-
 from stockbk inner join productobk on stockbk.ID_producto=productobk.id_producto -- UNIMOS LAS TABLAS SOTCKBK Y PRODUCTOBK POR MEDIO DEL ID_PRODUCTO QUE ES PARTE DE LA TABLA STOCKBK
-
 where marca = f_MARCA and modelo = f_MODELO; -- VAMOS A CONSULTAR CUANTO STOCK HAY DEL PRODUCTO QUE CUMPLA CON LOS PARAMETROS MARCA Y MODELO 
-
 RETURN LISTA_DE_PRODUCTOS;
-
 end //
 
 delimiter ;
