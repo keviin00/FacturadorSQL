@@ -64,13 +64,16 @@ select FN_Productos_MarcaBK ('celular');
  
 DROP FUNCTION IF EXISTS FN_Productos_DisponibleBK ; -- BORRAMOS EL FN SI EXISTE 
 delimiter //
-create function FN_Productos_DisponibleBK (f_MARCA char(255), f_MODELO char(255)) returns int --  CREAMOS EL FN PARA VER CUANTOS PRODUCTOS QUEDAN DISPONIBLE EN EL STOCK 
+create function FN_Productos_DisponibleBK (f_MARCA char(255), f_MODELO char(255)) returns int
+ --  CREAMOS EL FN PARA VER CUANTOS PRODUCTOS QUEDAN DISPONIBLE EN EL STOCK 
 deterministic
 BEGIN
 DECLARE LISTA_DE_PRODUCTOS INT ;
 select cantidad into lista_de_productos
-from stockbk inner join productobk on stockbk.ID_producto=productobk.id_producto -- UNIMOS LAS TABLAS SOTCKBK Y PRODUCTOBK POR MEDIO DEL ID_PRODUCTO QUE ES PARTE DE LA TABLA STOCKBK
-where marca = f_MARCA and modelo = f_MODELO; -- VAMOS A CONSULTAR CUANTO STOCK HAY DEL PRODUCTO QUE CUMPLA CON LOS PARAMETROS MARCA Y MODELO 
+from stockbk inner join productobk on stockbk.ID_producto=productobk.id_producto
+ -- UNIMOS LAS TABLAS SOTCKBK Y PRODUCTOBK POR MEDIO DEL ID_PRODUCTO QUE ES PARTE DE LA TABLA STOCKBK
+where marca = f_MARCA and modelo = f_MODELO; 
+-- VAMOS A CONSULTAR CUANTO STOCK HAY DEL PRODUCTO QUE CUMPLA CON LOS PARAMETROS MARCA Y MODELO 
 RETURN LISTA_DE_PRODUCTOS;
 end //
 
@@ -81,15 +84,15 @@ select FN_Productos_DisponibleBK ('Celular','Sony');
 		-- FUNCION VI
 DROP FUNCTION IF EXISTS FN_Recibobk; -- BORRAMOS EL FN SI EXISTE 
 delimiter // 
-create function FN_Recibobk (PRODUCTO INT) RETURNS INT --  CREAMOS EL FN PARA VER CUANTAS PERSONAS COMPRARON EL MISMO PRODUCTO
+create function FN_Recibobk (PRODUCTO varchar(500)) RETURNS INT --  CREAMOS EL FN PARA VER CUANTAS PERSONAS COMPRARON EL MISMO PRODUCTO
 deterministic
 begin
 	DECLARE  NUMERO INT ;
-	select count(*)into NUMERO from recibobk  -- BUSCAMOS EN LA TABLA RECIBOBK
-	WHERE ID_Producto = PRODUCTO ;  -- BUSCAMOS LOS PRODUCTOS QUE TENGAN EL ID_PRODUCTO INGRESADO
+	select count(*)into NUMERO from productobk  -- BUSCAMOS EN LA TABLA PRODUCTOBK
+	WHERE SERIAL_NUMBER = PRODUCTO ;  -- BUSCAMOS LOS PRODUCTOS QUE TENGAN EL SERIAL_NUMBER
 	RETURN NUMERO  ;
 end //
 delimiter ;
-select FN_Recibobk  ('4');
+select FN_Recibobk  ('F2LXHGEKKPHG');
 
 
