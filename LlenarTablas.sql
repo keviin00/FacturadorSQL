@@ -10,7 +10,7 @@ INSERT INTO clientebk(nombre,apellido,email,dni,provincia,localidad)VALUE
 ('Martin', 'Aldosibi', 'Aldosibi.Martin@gmail.com', '41598762', 'Buenos Aires', 'Palomar'),
 ('Marco', 'Polo', 'Marco.Polo@gmail.com', '24569873', 'Buenos Aires', 'Palomar');
 
-INSERT INTO provinciasbk( provincia) VALUES(
+(	INSERT INTO provinciasbk( provincia) VALUES
 ('Buenos Aires'),
 ( 'Buenos Aires-GBA'),
 ( 'Capital Federal'),
@@ -35,8 +35,9 @@ INSERT INTO provinciasbk( provincia) VALUES(
 ( 'Santa Fe'),
 ( 'Santiago del Estero'),
 ( 'Tierra del Fuego'),
-( 'Tucumán'));
-INSERT INTO localidadesbk ( ID_Localidades,ID_Provincia, localidad) VALUES(
+( 'Tucumán');
+)
+(	INSERT INTO localidadesbk ( ID_Localidades,ID_Provincia, localidad) VALUES
 (1,1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
 (3, 1, 'A. Alsina'),
@@ -2419,7 +2420,9 @@ INSERT INTO Localidadesbk (ID_Localidades, ID_provincia, localidad) VALUES
 (2379, 25, 'Villa Quinteros'),
 (2380, 25, 'Yánima'),
 (2381, 25, 'Yerba Buena'),
-(2382, 25, 'Yerba Buena (S)'));
+(2382, 25, 'Yerba Buena (S)');
+
+)
 INSERT INTO  Productobk(Marca,Modelo,Serial_number,Precio,Producto_disponible)VALUES
 ('Celular','Iphone','F2LXHGEKKPHG','250000','1'),
 ('Corsair','Vengance','XbCHHKPS','15000','0'),
