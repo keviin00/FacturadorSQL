@@ -11,7 +11,6 @@ begin
 	RETURN NUMERO ;
 end //
 delimiter ;
-select FN_LocalidClienteBK  ('Caseros');
 
 		
         
@@ -28,7 +27,6 @@ begin
 	RETURN NUMERO;
 end //
 delimiter ;
-select FN_ProvinciaClienteBK ('Tierra del fuego');
 
      --   FUNCION III
 
@@ -43,7 +41,6 @@ begin
 	RETURN NUMERO ;
 end //
 delimiter ;
-select FN_Productos_ModeloBK ('iphone');
 
 		-- FUNCION IV
 
@@ -58,7 +55,6 @@ begin
 	RETURN NUMERO ;
 end //
 delimiter ;
-select FN_Productos_MarcaBK ('celular');
 
 		-- FUNCION V
  
@@ -79,7 +75,6 @@ end //
 
 delimiter ;
 
-select FN_Productos_DisponibleBK ('Celular','Sony');
 
 		-- FUNCION VI
 DROP FUNCTION IF EXISTS FN_Recibobk; -- BORRAMOS EL FN SI EXISTE 
@@ -93,6 +88,18 @@ begin
 	RETURN NUMERO  ;
 end //
 delimiter ;
+
+
+
+
+
+--    PRUEBAS           --
+
+select FN_LocalidClienteBK  ('Caseros');
+select FN_ProvinciaClienteBK ('Tierra del fuego');
+select FN_Productos_ModeloBK ('iphone');
+select FN_Productos_MarcaBK ('celular');
+select FN_Productos_DisponibleBK ('Celular','Sony');
 select FN_Recibobk  ('F2LXHGEKKPHG');
 
 
