@@ -1,16 +1,26 @@
-use facturadorbk;
-INSERT INTO clientebk(nombre,apellido,email,dni,provincia,localidad)VALUE
- ('Kevin','Ayala','kevin.eliasayala@gmail.com','43011615','Buenos Aires','Caseros'),
-('Lautaro','Bazzola','lautaro.bazzola@gmail.com','39592309','Tierra del Fuego','Ushuaia'),
-('Daniel','Matalone','daniel.matalone@gmail.com','32834933','Misiones','Iguazú'),
-('Nicolas','Torres','torresnicolasezequiel23@outlook.com','41215267','Formosa','Las Lomitas'),
-('Laura','Matalone','matalonelaura@gmail.com','28800896','Entre Rios','Parana'),
-('Melina','Rios','meeelina.rios@gmail.com','44304161','Salta','Angastaco'),
-('Agustin','Di Pilato','agdipilato@outlook.com','40242281','La Pampa','Arata'),
-('Martin', 'Aldosibi', 'Aldosibi.Martin@gmail.com', '41598762', 'Buenos Aires', 'Palomar'),
-('Marco', 'Polo', 'Marco.Polo@gmail.com', '24569873', 'Buenos Aires', 'Palomar');
+﻿USE facturador;
 
-(	INSERT INTO provinciasbk( provincia) VALUES
+
+INSERT INTO cliente(Nombre,Apellido,Mail,Dni,Provincia,Localidad,Telefono)VALUE
+('Jon ','Ferre','Ferre.jon@CoderHouse.com','11715945','Buenos Aires','Caseros','1152371371'),
+('Jorge ','Conde','Jorge.Conde@CoderHouse.com','63199408','Tierra del Fuego','Ushuaia','1152734082'),
+('Reyes ','Ortiz','Reyes.Ortiz@CoderHouse.com','43665965','Misiones','Iguazú','1152799725'),
+('Caridad ','Ventura','Caridad.Ventura@CoderHouse.com','37606735','Formosa','Las Lomitas','1152738154'),
+('Jordi ','Carbonell','Jordi.Carbonell@CoderHouse.com','69208174','Entre Rios','Parana','1152798395'),
+('Luis','Aurelio ','Luis.Aurelio@CoderHouse.com','38016156','Salta','Angastaco','1152390608'),
+('Martin ','Calderon','Martin.Calderon@CoderHouse.com','36756115','La Pampa','Arata','1152193291'),
+('Cesareo ', 'Pelaez', 'Cesareo.Pelaez@CoderHouse.com', '30829594', 'Buenos Aires', 'Palomar','1152371348'),
+('Begoña ', 'Murillo', 'Begoña .Murillo@CoderHouse.com', '62468908', 'Córdoba', 'Villa Rossi','1152390696'),
+('Maria', 'Dieguez','Maria.Dieguez@CoderHouse.com', '55860020', 'La Rioja', 'Arauco','1152198846'),
+('Abdeslam ', 'Cortes', 'Abdeslam.Cortes@CoderHouse.com', '65422238', 'Mendoza', 'Godoy Cruz','1155201348'),
+('Martina ', 'Duarte', 'Martina.Duartelo@CoderHouse.com', '84649799', 'Santa Fe', 'Josefina','1154634082'),
+('Aleix ', 'Sola', 'Aleix.Sola@CoderHouse.com', '81048591', 'Tucumán', 'Yánima','1152799732'),
+('Antoni', 'Alegre', 'Antoni.Alegre@CoderHouse.com', '17975701', 'Santiago del Estero', 'Weisburd','1152462120'),
+('Olga', 'Alcala', 'Olga.Alcala@CoderHouse.com', '48261851', 'Salta', 'Chicoana','1152734071');
+
+-- -- -- -- -- -- --
+
+INSERT INTO provincias(Provincia) VALUES 
 ('Buenos Aires'),
 ( 'Buenos Aires-GBA'),
 ( 'Capital Federal'),
@@ -36,8 +46,10 @@ INSERT INTO clientebk(nombre,apellido,email,dni,provincia,localidad)VALUE
 ( 'Santiago del Estero'),
 ( 'Tierra del Fuego'),
 ( 'Tucumán');
-)
-(	INSERT INTO localidadesbk ( ID_Localidades,ID_Provincia, localidad) VALUES
+
+ -- - -- - - - -- - -- - - -
+
+  INSERT INTO localidad ( ID_Localidad,Provincias_ID, Localidad) VALUES
 (1,1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
 (3, 1, 'A. Alsina'),
@@ -2111,7 +2123,7 @@ INSERT INTO clientebk(nombre,apellido,email,dni,provincia,localidad)VALUE
 (2071, 22, 'Palacios'),
 (2072, 22, 'Pavón'),
 (2073, 22, 'Pavón Arriba');
-INSERT INTO Localidadesbk (ID_Localidades, ID_provincia, localidad) VALUES
+INSERT INTO Localidad (ID_Localidad, Provincias_ID, Localidad) VALUES
 (2074, 22, 'Pedro Gómez Cello'),
 (2075, 22, 'Pérez'),
 (2076, 22, 'Peyrano'),
@@ -2422,40 +2434,41 @@ INSERT INTO Localidadesbk (ID_Localidades, ID_provincia, localidad) VALUES
 (2381, 25, 'Yerba Buena'),
 (2382, 25, 'Yerba Buena (S)');
 
-)
-INSERT INTO  Productobk(Marca,Modelo,Serial_number,Precio,Producto_disponible)VALUES
-('Celular','Iphone','F2LXHGEKKPHG','250000','1'),
-('Corsair','Vengance','XbCHHKPS','15000','0'),
-('Asus','Z590Prime','B4Etcp8o','35000','0'),
-('Gefast','Gf26','JytuJJqp','25000','1'),
-('Naxido','XB-6255M','213361461','20000','1'),
-('Coradir','27Fkal','WeDUqBM9','67000','0'),
-('Celular', 'Sony', 'ASD48965RS', '250000', '1'),
-('XBOX','JOSTYCK','M1106906007',30500,1);
-INSERT INTO Stockbk ( ID_Producto, cantidad) VALUES
-( '1', '80'),
-( '4', '10'),
-( '5', '35'),
-( '2', '0'),
-( '3', '0'),
-( '6', '0'),
-('7', '100');
-INSERT INTO Recibobk(ID_Producto,ID_Stock,ID_Cliente,ID_Provincia,ID_localidades)VALUE
-('1','1','2','24','2272'),
-('4','2','6','18','1672'),
-('5','3','7','12','1349'),
-('5','3','3','15','1503'),
-('4','2','5','9','1166'),
-('1','1','1','2','163'),
-('1', '1', '8', '2', '176'),
- ('7', '7', '9', '2', '176');
+INSERT INTO Direcciones(Cliente_ID,Direccion,CP)VALUES
+  ('1','Gral. Hornos 2560 ','1678'),
+  ('2','Caraguata 459','9410'),
+  ('3','Caraguata 459, Puerto Iguazú','3370'),
+  ('4','Libertad 252','3630'),
+  ('5','Corrientes 77','3100'),
+  ('6','Juan Martinez 735 Pueblo Viejo','4427'),
+  ('7','Belgrano 280','6385'),
+  ('8','Ing. Guillermo Marconi 1225','1685'),
+  ('9','18 de Abril','6128'),
+  ('10','Severo del Castillo 3800','5310'),
+  ('11','Cervantes 1153','5501'),
+  ('12','9 de Julio 441','2402'),
+  ('13','Unnamed Road, Tucumán','4158'),
+  ('14','calle publica s/n B° La Bombonera 4351 ','4351'),
+  ('15','El carmen 290','4423');
 
-INSERT INTO Garantiabk(ID_Producto,ID_Stock,ID_Recibo,ID_Cliente) VALUE
-('1','1','1','2'),
-('4','2','2','6'),
-('5','3','3','7'),
-('5','3','4','3'),
-('4','2','5','5'),
-('1','1','6','1'),
-('1', '1', '7', '8'),
-('7','7','8','9');
+INSERT INTO productos(Marca,Modelo,Precio,Serial_Number,Producto_Disponible) VALUES 
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','',''),
+  ('','','','','');

@@ -7,7 +7,7 @@ create  or replace view cliente_Vist as -- CREO O REMPLAZO LA VIEWS CLIENTE
    
   	  -- VIEW II
  create  or replace view producto_Vist as -- CREO O REMPLAZO LA VIEWS Productos
-    (select ID_Producto,Marca,Modelo,Precio,Serial_number,Producto_disponible -- SELECCIONAMOS LOS CAMPOS ID_PRODUCTO,MARCA,MODELO,SERIAL_NUMBER,PRECIO Y PRODUCTO_DISPONIBLE
+    (select ID_Producto,Marca,Modelo,Precio,Serial_number,Producto_Disponible -- SELECCIONAMOS LOS CAMPOS ID_PRODUCTO,MARCA,MODELO,SERIAL_NUMBER,PRECIO Y PRODUCTO_DISPONIBLE
     from productos -- DE LA TABLA Productos
     where producto_disponible like'1%' -- SI EL PRODUCTO ESTA DISPONIBLE 
     order by precio desc); -- LOS ORDENAMOS POR PRECIO DESCENDENTE 
@@ -34,7 +34,7 @@ create  or replace view stock_VIst as -- CREO O REMPLAZO LA VIEWS stock
 
       -- VIEW VI
 create  or replace view Recibo_Vies as -- CREO O REMPLAZO LA VIEWS RECIBO_BK  
-	(select  productos.Marca,productos.Modelo,productos.Precio,productos.Serial_number,productos.producto_disponible,  -- SELECCIONAMOS LA TABLA productos EL CAMPO MARCA,MODELO,SERIAL_NUMBER,PRECIO,PRODUCTO_DISPONIBLE
+	(select  productos.Marca,productos.Modelo,productos.Precio,productos.Serial_number,  -- SELECCIONAMOS LA TABLA productos EL CAMPO MARCA,MODELO,SERIAL_NUMBER,PRECIO,PRODUCTO_DISPONIBLE
 	cliente.nombre,cliente.apellido,cliente.Mail,cliente.Dni,cliente.Telefono, -- SELECCIONAMOS LA TABLA cliente EL CAMPO NOMBRE,APELLIDO,DNI,EMAL
 	provincias.Provincia,  -- SELECCIONAMOS LA TABLA provincias EL CAMPO PROVINCIA
 	localidad.Localidad  -- SELECCIONAMOS LA TABLA localidad EL CAMPO LOCALIDAD
@@ -56,7 +56,7 @@ create  or replace view Recibo_Vies as -- CREO O REMPLAZO LA VIEWS RECIBO_BK
       create or replace view garantia_View as -- CREO O REMPLAZO LA VIEWS garantia
   (select  
   Recibo.ID_Recibo,
-  productos.Marca,productos.Modelo,productos.Precio,productos.Serial_number,productos.producto_disponible,  -- SELECCIONAMOS LA TABLA productos EL CAMPO MARCA,MODELO,SERIAL_NUMBER,PRECIO,PRODUCTO_DISPONIBLE
+  productos.Marca,productos.Modelo,productos.Precio,productos.Serial_number,  -- SELECCIONAMOS LA TABLA productos EL CAMPO MARCA,MODELO,SERIAL_NUMBER,PRECIO,PRODUCTO_DISPONIBLE
 	cliente.nombre,cliente.apellido,cliente.Mail,cliente.Dni,cliente.Telefono, -- SELECCIONAMOS LA TABLA cliente EL CAMPO NOMBRE,APELLIDO,DNI,EMAL
 	provincias.Provincia,  -- SELECCIONAMOS LA TABLA provincias EL CAMPO PROVINCIA
 	localidad.Localidad  -- SELECCIONAMOS LA TABLA localidad EL CAMPO LOCALIDAD
@@ -87,7 +87,7 @@ CREATE OR REPLACE VIEW Direcciones_Views AS -- CREAMOS LA VISTA DE LA TABLA DIRE
 CREATE OR REPLACE VIEW Envio_Views AS
 (
   SELECT
-Envio.Fecha_de_envio,envio.Estado_Entrega,
+Envio.Fecha_de_envio,
 direcciones.Direccion,direcciones.CP,
 Cliente.Nombre,Cliente.apellido,cliente.Telefono,Cliente.Dni 
   

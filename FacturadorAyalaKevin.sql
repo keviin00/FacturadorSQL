@@ -11,7 +11,8 @@ ID_Cliente int  NOT NULL PRIMARY KEY AUTO_INCREMENT,
   Mail varchar (600) NOT NULL UNIQUE,
   Dni int  UNSIGNED NOT NULL UNIQUE, 
   Provincia varchar (1000) NOT NULL,
-  Localidad varchar (1000) NOT NULL
+  Localidad varchar (1000) NOT NULL,
+  Telefono int UNSIGNED NOT NULL UNIQUE
 );
 
 
@@ -38,7 +39,7 @@ ID_Producto int  AUTO_INCREMENT NOT NULL PRIMARY KEY,
   Modelo varchar (600) NOT NULL,
   Precio int UNSIGNED NOT NULL,
   Serial_Number varchar(600) NOT NULL UNIQUE,
-  Produco_Disponible boolean DEFAULT FALSE NOT NULL 
+  Producto_Disponible boolean DEFAULT FALSE NOT NULL 
 );
 
 DROP TABLE IF EXISTS Stock; -- Borramos la tabla si existe
@@ -88,9 +89,14 @@ CREATE TABLE Envio
   ID_Envio int  AUTO_INCREMENT NOT NULL PRIMARY KEY,
   Direccion_ID int  NOT NULL, -- fk
   Cliente_ID int NOT NULL UNIQUE, -- fk
-  Fecha_de_envio datetime NOT NULL
+  Fecha_de_envio datetime NOT NULL,
+  Recibo_ID int NOT NULL UNIQUE 
 );
 
+
+ALTER TABLE Envio
+  ADD FOREIGN KEY(Recibo_ID)
+  REFERENCES Recibo(ID_Recibo);
 
 ALTER TABLE Localidad
   ADD FOREIGN KEY(Provincias_ID)
