@@ -56,7 +56,7 @@ CREATE TABLE Recibo -- fk
   ID_Recibo int  NOT NULL AUTO_INCREMENT PRIMARY KEY,
   Producto_ID int  NOT NULL,
   Provincias_ID int NOT NULL ,
-  Cliente_ID int NOT NULL UNIQUE,
+  Cliente_ID int NOT NULL ,
   Localidad_ID int NOT NULL
 );
 
@@ -64,10 +64,10 @@ DROP TABLE IF EXISTS Garantia;-- Borramos la tabla si existe
 CREATE TABLE Garantia-- fk
 (
   ID_Garanita int  NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  Recibo_ID int  NOT NULL, -- fk
+  Recibo_ID int  NOT NULL UNIQUE, -- fk
   Producto_ID int  NOT NULL, -- fk
   Provincias_ID int  NOT NULL,  -- fk
-  Cliente_ID int  NOT NULL UNIQUE, -- fk
+  Cliente_ID int  NOT NULL , -- fk
   Localidad_ID int  NOT NULL, -- fk
   Fecha_de_Compra date DEFAULT NULL , 
   Inicio_Garantia date DEFAULT NULL ,
@@ -88,7 +88,7 @@ CREATE TABLE Envio
 (
   ID_Envio int  AUTO_INCREMENT NOT NULL PRIMARY KEY,
   Direccion_ID int  NOT NULL, -- fk
-  Cliente_ID int NOT NULL UNIQUE, -- fk
+  Cliente_ID int NOT NULL , -- fk
   Fecha_de_envio datetime NOT NULL,
   Recibo_ID int NOT NULL UNIQUE 
 );
