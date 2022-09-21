@@ -69,8 +69,8 @@ CREATE TABLE Garantia-- fk
   Provincias_ID int  NOT NULL,  -- fk
   Cliente_ID int  NOT NULL , -- fk
   Localidad_ID int  NOT NULL, -- fk
-  Fecha_de_Compra date DEFAULT NULL , 
-  Inicio_Garantia date DEFAULT NULL ,
+  Fecha_de_Compra datetime DEFAULT NULL , 
+  Inicio_Garantia datetime DEFAULT NULL ,
   Fin_garantia datetime DEFAULT NULL 
 );
 
